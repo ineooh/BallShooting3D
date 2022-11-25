@@ -6,19 +6,32 @@ using UnityEngine.UIElements;
 
 public class Bullet : MonoBehaviour
 {
-    float moveSpeed = 2.5f;
-    Vector3 rot;
+    int _bounce = 5;
 
     // Start is called before the first frame update
     void Start()
     {
-        rot = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
-        this.transform.rotation = Quaternion.LookRotation(rot);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += rot * Time.deltaTime * moveSpeed;
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("DeathZone"))
+        {
+            Destroy(gameObject);
+        } else if (collision.gameObject.CompareTag("Wall"))
+        {
+            this._bounce--;
+            if (this._bounce < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

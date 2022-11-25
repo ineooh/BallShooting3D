@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SpawnBulletByTouch : MonoBehaviour
 {
+    [SerializeField] private GameObject bullet;
+    private float delayTime = 0.2f;
+    private float delay = 0.0f;
+
     Rigidbody _mcRb;
 
     // Start is called before the first frame update
@@ -15,49 +19,38 @@ public class SpawnBulletByTouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        delay -= Time.deltaTime;
+
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, float.MaxValue))
         {
-            Vector3 mousePos = hit.point;
-            //point.transform.position = hit.point;
-
             var lookDir = hit.point - transform.position;
             float angle = Mathf.Atan2(lookDir.x, lookDir.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, angle, transform.rotation.z));
+
+            if (Input.GetButtonUp("Fire1") && delay <= 0)
+            {
+                lookDir.y = 0;
+                delay = delayTime;
+
+                GameObject spawnedBullet = Instantiate(bullet,
+                                                this.transform.position + new Vector3(0, 1.55f, 0),
+                                                Quaternion.identity);
+
+                //spawnedBullet.GetComponent<Rigidbody>().AddForce(new Vector3(1, 0 , 0));
+
+                float minXZ = Mathf.Min(lookDir.x, lookDir.z);
+                if (minXZ < 1)
+                {
+                    float mul = (1 / minXZ) + 1;
+                    lookDir.x *= mul;
+                    lookDir.z *= mul;
+                }
+
+                spawnedBullet.GetComponent<Rigidbody>().velocity = lookDir * 2.5f;
+            }
         }
-
-
-        ////if (Input.GetButton("Fire1"))
-        ////{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
-
-        //    if (Physics.Raycast(ray, out hit) && hit.collider.tag == "Plane")
-        //    {
-        //        //Vector3 relativePos = hit.point - _mainCharacter.transform.position;
-
-        //        //Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-        //        //Vector3 v = rotation.ToEulerAngles();
-
-
-        //        //_mainCharacter.transform.rotation = rotation;
-
-        //        Vector3 lookDir = hit.point - _mainCharacter.transform.position;
-
-        //        float angle = Mathf.Atan2(lookDir.z, lookDir.x) * Mathf.Rad2Deg - 90f;
-
-        //        Debug.Log(angle);
-
-        //    //_mainCharacter.transform.rotation = new Quaternion(0, angle, 0, 1);
-        //    //_mainCharacter.transform.Rotate(new Vector3(0, angle, 0));
-        //    _mainCharacter.transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
-        //}
-        ////}
-        ///
-
-
-
     }
 }
