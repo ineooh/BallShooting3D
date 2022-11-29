@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plane
+  - DeathZone
+  - Wall
   layers:
   - Default
   - TransparentFX

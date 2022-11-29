@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class Bullet : MonoBehaviour
 {
-    int _bounce = 5;
+    [SerializeField] private int _bounce = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,8 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 velo = GetComponent<Rigidbody>().velocity;
+        Debug.Log(velo);
     }
 
     private void OnCollisionEnter(Collision collision)
