@@ -21,6 +21,7 @@ public class SpawnBulletByTouch : MonoBehaviour
     {
         delay -= Time.deltaTime;
 
+        // TODO: replace user clicking on phone screen instead of mouse click
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -44,6 +45,7 @@ public class SpawnBulletByTouch : MonoBehaviour
         Vector3 gunPos = new Vector3(0, 0.3f, 0);
         float bulletSpeed = 20f;
 
+        // Spawn the bullet
         GameObject spawnedBullet = Instantiate(bullet, this.transform.position + gunPos, Quaternion.identity);
 
         Vector3 bulletDir = lookDir;
@@ -56,6 +58,10 @@ public class SpawnBulletByTouch : MonoBehaviour
         bulletDir.z /= maxXZ;
         Debug.Log("After: " + bulletDir);
 
+        // Ignore collision with Main character
+        //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponent<Collider>());
+
+        // Set bullet's velocity
         spawnedBullet.GetComponent<Rigidbody>().velocity = bulletDir * bulletSpeed;
     }
 }
