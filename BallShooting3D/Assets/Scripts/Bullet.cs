@@ -28,6 +28,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         } else if (collision.gameObject.CompareTag("Wall"))
         {
+            AudioManager.Instance.PlaySoundEffect("billiard_collision");
             this._bounce--;
             if (this._bounce < 0)
             {
