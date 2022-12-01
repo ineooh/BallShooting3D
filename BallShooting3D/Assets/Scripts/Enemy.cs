@@ -21,6 +21,10 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
+        } else if (collision.gameObject.CompareTag("MainCharacter"))
+        {
+            // TODO: Replace this to "REAL" GAMEOVER state
+            Debug.Log("GAMEOVER");
         }
     }
 }

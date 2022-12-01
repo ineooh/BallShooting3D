@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Boost
   - Bullet
+  - MainCharacter
   layers:
   - Default
   - TransparentFX

@@ -28,7 +28,6 @@ public class Boost : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("Collision: Boost-bullet");
             SpawnBullet();
             Destroy(gameObject); 
         }
