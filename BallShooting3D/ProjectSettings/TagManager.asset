@@ -7,6 +7,9 @@ TagManager:
   - Plane
   - DeathZone
   - Wall
+  - Enemy
+  - Boost
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - MainCharacter
+  - Bullet
   - 
   - 
   - 

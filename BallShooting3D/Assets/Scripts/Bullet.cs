@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         Vector3 velo = GetComponent<Rigidbody>().velocity;
-        Debug.Log(velo);
+        //Debug.Log(velo);
     }
 
     private void OnCollisionEnter(Collision collision)
