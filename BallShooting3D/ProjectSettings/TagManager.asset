@@ -15,15 +15,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - DeathZone
   - Water
   - UI
   - MainCharacter
   - Bullet
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Enemy
+  - Boost
+  - Plane
   - 
   - 
   - 
