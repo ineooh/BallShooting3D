@@ -13,6 +13,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        agent.SetDestination(new Vector3(0, 0, 0.38f));
+        Vector3 pos = FindObjectOfType<MainCharacter>().transform.position;
+        agent.SetDestination(pos);
+
+        // TODO: I don't know why y = -0.4 always :)
+        Vector3 nowPos = transform.position;
+        this.transform.position = new Vector3(nowPos.x, 0, nowPos.z);
     }
 }

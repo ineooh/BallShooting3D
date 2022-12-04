@@ -23,10 +23,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("DeathZone"))
-        {
-            Destroy(gameObject);
-        } else if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
             AudioManager.Instance.PlaySoundEffect("billiard_collision");
             this._bounce--;
