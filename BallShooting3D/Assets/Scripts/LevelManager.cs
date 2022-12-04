@@ -37,8 +37,7 @@ public class LevelManager : MonoBehaviour
             await Task.Delay(100);
             _progressBar.value = scene.progress;
         } while (scene.progress < 0.9f);
-
-        await Task.Delay(1000);
+        await Task.Delay(500);
 
         scene.allowSceneActivation = true;
         _loaderCanvas.SetActive(false);
