@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Enemy : MonoBehaviour
         if (_isBoss == true)
         {
             this.transform.localScale = Vector3.one;
+            this.GetComponent<NavMeshAgent>().speed = 1.5f;
         }
     }
 
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
             } else
             {
                 _healthRemain--;
+                this.transform.localScale -= new Vector3(0.07f, 0.07f, 0.07f);
                 if (_healthRemain == 0)
                 {
                     Destroy(gameObject);
