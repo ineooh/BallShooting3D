@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    private bool _isBoss = false;
+    private int _healthRemain = 10; // for boss only
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (_isBoss == true)
+        {
+            this.transform.localScale = Vector3.one;
+        }
     }
 
     // Update is called once per frame
@@ -20,7 +27,18 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            if (!_isBoss)
+            {
+                Destroy(gameObject);
+            } else
+            {
+                _healthRemain--;
+                if (_healthRemain == 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            
         } else if (collision.gameObject.CompareTag("MainCharacter"))
         {
             // TODO: Replace this to "REAL" GAMEOVER state
