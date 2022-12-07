@@ -901,13 +901,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Directional Light
       objectReference: {fileID: 0}
-    - target: {fileID: 8318213937020614761, guid: 834959fa617f4da468dd3bf68b28d395, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8318213937020614762, guid: 834959fa617f4da468dd3bf68b28d395, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 4095
+      value: 3839
       objectReference: {fileID: 0}
     - target: {fileID: 8318213937020614763, guid: 834959fa617f4da468dd3bf68b28d395, type: 3}
       propertyPath: m_RootOrder
@@ -3144,10 +3140,6 @@ PrefabInstance:
     - target: {fileID: 2462696877030299501, guid: bd905851a49d80f4d826a2b644017619, type: 3}
       propertyPath: m_Name
       value: Wall List
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462696877030299501, guid: bd905851a49d80f4d826a2b644017619, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd905851a49d80f4d826a2b644017619, type: 3}
