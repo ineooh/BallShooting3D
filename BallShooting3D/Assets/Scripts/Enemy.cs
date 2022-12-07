@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         } else if (collision.gameObject.CompareTag("MainCharacter"))
         {
             // TODO: Replace this to "REAL" GAMEOVER state
-            Debug.Log("GAMEOVER");
+            //Debug.Log("GAMEOVER");
         }
     }
 }

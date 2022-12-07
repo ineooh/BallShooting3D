@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Random = System.Random;
+using System.Threading.Tasks;
 
 public class Boost : MonoBehaviour
 {
     [SerializeField]
-    private int _boostValue = 10;
+    private int _boostValue = 20;
+    private int _boostRemain = 0;
+
+    Random random = new Random();
 
     [SerializeField]
     private GameObject _bullet;
@@ -21,7 +25,11 @@ public class Boost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_boostRemain > 0)
+        {
+            _boostRemain--;
+            SpawnBullet();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,24 +37,38 @@ public class Boost : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             SpawnBullet();
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
 
-    void SpawnBullet()
+    float GetRandomNumber(float minimum = -1, float maximum = 1) 
+    {
+        return (float)(random.NextDouble() * (maximum - minimum) + minimum);
+    }
+   
+    Vector3 GetRandomDir()
+    {
+        float x = GetRandomNumber(-1, 1);
+        float z = GetRandomNumber(-1, 1);
+        return new Vector3(x, 0, z);
+    }
+
+    async void SpawnBullet()
     {
         float bulletSpeed = 15f;
+        Vector3 position = this.gameObject.transform.position;
+
         for (int i = 0; i < _boostValue; i++)
         {
-            Vector3 position = this.gameObject.transform.position;
-
             GameObject spawnedBullet = Instantiate(_bullet, position, Quaternion.identity);
-
-            Random rnd = new Random();
-
-            Vector3 bulletDir = new Vector3((float)rnd.NextDouble(), 0, (float)rnd.NextDouble());
+            Vector3 bulletDir = GetRandomDir();
 
             spawnedBullet.GetComponent<Rigidbody>().velocity = bulletDir * bulletSpeed;
+
+            await Task.Delay(50);
+            
+            spawnedBullet.GetComponent<Bullet>().SetBound(0);
         }
+        
     }
 }

@@ -49,17 +49,12 @@ public class SpawnBulletByTouch : MonoBehaviour
         GameObject spawnedBullet = Instantiate(bullet, this.transform.position + gunPos, Quaternion.identity);
 
         Vector3 bulletDir = lookDir;
-        ///Debug.Log("Before: " + lookDir);
 
         // Get direction only, don't care about lenght of vector
         bulletDir.y = 0;
         float maxXZ = Mathf.Max(Mathf.Abs(bulletDir.x), Mathf.Abs(bulletDir.z));
         bulletDir.x /= maxXZ;
         bulletDir.z /= maxXZ;
-        //Debug.Log("After: " + bulletDir);
-
-        // Ignore collision with Main character
-        // Physics.IgnoreCollision(spawnedBullet.GetComponent<Collider>(), GetComponent<Collider>());
 
         // Set bullet's velocity
         spawnedBullet.GetComponent<Rigidbody>().velocity = bulletDir * bulletSpeed;

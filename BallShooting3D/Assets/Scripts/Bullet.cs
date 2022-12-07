@@ -34,4 +34,9 @@ public class Bullet : MonoBehaviour
             }
         }
     }
+
+    public void SetBound(int value)
+    {
+        this._bounce = value;
+    }
 }
