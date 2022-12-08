@@ -15,7 +15,11 @@ public class Enemy : MonoBehaviour
         if (_isBoss == true)
         {
             this.transform.localScale = Vector3.one;
-            this.GetComponent<NavMeshAgent>().speed = 1.5f;
+            this.GetComponent<NavMeshAgent>().speed = 0.75f;
+        } else
+        {
+            this.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            this.GetComponent<NavMeshAgent>().speed = 0.25f;
         }
     }
 
