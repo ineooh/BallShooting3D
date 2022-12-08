@@ -20,11 +20,17 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 velo = _rb.velocity;
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Vector3 velo = _rb.velocity;
+        if (velo.magnitude < 15f)
+        {
+            velo *= 15f;
+        }
+
         AudioManager.Instance.PlaySoundEffect("billiard_collision");
 
         if (collision.gameObject.CompareTag("Wall"))
