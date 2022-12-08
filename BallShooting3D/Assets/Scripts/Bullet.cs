@@ -8,17 +8,19 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private int _bounce = 5;
 
+    Rigidbody _rb;
+
     // Start is called before the first frame update
     void Start()
     {
         AudioManager.Instance.PlaySoundEffect("billiard_collision");
+        _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 velo = GetComponent<Rigidbody>().velocity;
-        //Debug.Log(velo);
+        Vector3 velo = _rb.velocity;
     }
 
     private void OnCollisionEnter(Collision collision)

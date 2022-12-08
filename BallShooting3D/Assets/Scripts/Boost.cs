@@ -4,11 +4,15 @@ using UnityEngine;
 using System;
 using Random = System.Random;
 using System.Threading.Tasks;
+using TMPro;
 
 public class Boost : MonoBehaviour
 {
     [SerializeField]
     private int _boostValue = 20;
+    [SerializeField]
+    private TextMeshProUGUI _textMeshPro;
+
     private int _boostRemain = 0;
 
     Random random = new Random();
@@ -19,7 +23,7 @@ public class Boost : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _textMeshPro.text = _boostValue.ToString();
     }
 
     // Update is called once per frame
