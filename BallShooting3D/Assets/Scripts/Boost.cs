@@ -64,10 +64,9 @@ public class Boost : MonoBehaviour
             Vector3 bulletDir = GetRandomDir();
 
             spawnedBullet.GetComponent<Rigidbody>().velocity = bulletDir * bulletSpeed;
+            spawnedBullet.GetComponent<Bullet>().SetBound(0);
 
             await Task.Delay(50);
-            
-            spawnedBullet.GetComponent<Bullet>().SetBound(0);
         }
         
     }

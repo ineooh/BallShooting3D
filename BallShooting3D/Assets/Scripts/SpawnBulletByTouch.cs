@@ -9,11 +9,13 @@ public class SpawnBulletByTouch : MonoBehaviour
     private float delay = 0.0f;
 
     Rigidbody _mcRb;
+    LightOfSight _lightOfSight;
 
     // Start is called before the first frame update
     void Start()
     {
         _mcRb = GetComponent<Rigidbody>();
+        _lightOfSight = FindObjectOfType<LightOfSight>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class SpawnBulletByTouch : MonoBehaviour
         if (Physics.Raycast(ray, out hit, float.MaxValue))
         {
             var lookDir = hit.point - transform.position;
+            _lightOfSight.SetMcDir(lookDir);
             float angle = Mathf.Atan2(lookDir.x, lookDir.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, angle, transform.rotation.z));
 
