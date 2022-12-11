@@ -30,7 +30,7 @@ public class SpawnBulletByTouch : MonoBehaviour
         if (Physics.Raycast(ray, out hit, float.MaxValue))
         {
             var lookDir = hit.point - transform.position;
-            _lightOfSight.SetMcDir(lookDir);
+            
             float angle = Mathf.Atan2(lookDir.x, lookDir.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, angle, transform.rotation.z));
 
@@ -39,6 +39,15 @@ public class SpawnBulletByTouch : MonoBehaviour
                 delay = delayTime;
 
                 SpawnBullet(lookDir);
+            }
+
+            if (Input.GetButton("Fire1"))
+            {
+                _lightOfSight.SetMcDir(lookDir);
+                _lightOfSight.SetIsShow(true);
+            } else
+            {
+                _lightOfSight.SetIsShow(false); ;
             }
         }
     }

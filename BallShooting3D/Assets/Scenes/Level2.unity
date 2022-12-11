@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.04
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -27,17 +27,17 @@ RenderSettings:
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
-  m_FlareStrength: 1
-  m_FlareFadeSpeed: 3
+  m_HaloStrength: 0.207
+  m_FlareStrength: 0.802
+  m_FlareFadeSpeed: 16.5
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1151479963}
   m_IndirectSpecularColor: {r: 0.43742362, g: 0.48522472, b: 0.5655007, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5bfd2b94a5a07b447ae14eb07bdf3f02, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -934,18 +934,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 802192171342403633, guid: d3b25d7e7555e524eafd87b9c785ac9b, type: 3}
-      propertyPath: m_Color.b
-      value: 0.10898895
-      objectReference: {fileID: 0}
-    - target: {fileID: 802192171342403633, guid: d3b25d7e7555e524eafd87b9c785ac9b, type: 3}
-      propertyPath: m_Color.g
-      value: 0.19961514
-      objectReference: {fileID: 0}
-    - target: {fileID: 802192171342403633, guid: d3b25d7e7555e524eafd87b9c785ac9b, type: 3}
-      propertyPath: m_Color.r
-      value: 0.3679245
-      objectReference: {fileID: 0}
     - target: {fileID: 8669937286846113932, guid: d3b25d7e7555e524eafd87b9c785ac9b, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -956,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8669937286846113932, guid: d3b25d7e7555e524eafd87b9c785ac9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7
+      value: -4.48
       objectReference: {fileID: 0}
     - target: {fileID: 8669937286846113932, guid: d3b25d7e7555e524eafd87b9c785ac9b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2830,6 +2818,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f6259b46c2f334ea1ca3a68262b472, type: 3}
+--- !u!108 &1151479963 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 8318213937020614762, guid: 834959fa617f4da468dd3bf68b28d395, type: 3}
+  m_PrefabInstance: {fileID: 1339403443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1168993836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4585561364922546414, guid: ee8c985f7c132ff4ab320224a9c7b78e, type: 3}
@@ -3405,7 +3398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705878192072717900, guid: 01f6259b46c2f334ea1ca3a68262b472, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.18
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 6705878192072717900, guid: 01f6259b46c2f334ea1ca3a68262b472, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3774,7 +3767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705878192072717900, guid: 01f6259b46c2f334ea1ca3a68262b472, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.18
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6705878192072717900, guid: 01f6259b46c2f334ea1ca3a68262b472, type: 3}
       propertyPath: m_LocalRotation.w

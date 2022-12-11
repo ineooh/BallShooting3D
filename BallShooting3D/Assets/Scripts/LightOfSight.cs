@@ -10,6 +10,8 @@ public class LightOfSight : MonoBehaviour
     private GameObject _mainCharacter;
     Vector3 mcDir = new Vector3(0, 0, 1);
 
+    bool _isShow = false;
+
     Mesh mesh;
 
     Vector3[] vertices = new Vector3[4];
@@ -31,18 +33,25 @@ public class LightOfSight : MonoBehaviour
 
     void Update()
     {
-        Vector3 mcPos = _mainCharacter.transform.position;
+        if (_isShow)
+        {
+            Vector3 mcPos = _mainCharacter.transform.position;
 
-        float angle = GetAngleFromVectorFloat(mcDir);
+            float angle = GetAngleFromVectorFloat(mcDir);
 
-        vertices[0] = RotatePoint(new Vector3(-0.1f, 0, 0) + mcPos, mcPos, angle);
-        vertices[1] = RotatePoint(new Vector3(-0.05f, 0, lightDistance) + mcPos, mcPos, angle);
-        vertices[2] = RotatePoint(new Vector3(0.1f, 0, 0) + mcPos, mcPos, angle);
-        vertices[3] = RotatePoint(new Vector3(0.05f, 0, lightDistance) + mcPos, mcPos, angle);
+            vertices[0] = RotatePoint(new Vector3(-0.1f, 0, 0) + mcPos, mcPos, angle);
+            vertices[1] = RotatePoint(new Vector3(-0.05f, 0, lightDistance) + mcPos, mcPos, angle);
+            vertices[2] = RotatePoint(new Vector3(0.1f, 0, 0) + mcPos, mcPos, angle);
+            vertices[3] = RotatePoint(new Vector3(0.05f, 0, lightDistance) + mcPos, mcPos, angle);
 
-        mesh.vertices = vertices;
-        mesh.uv = uv;
-        mesh.triangles = triangles;
+            mesh.vertices = vertices;
+            mesh.uv = uv;
+            mesh.triangles = triangles;
+        } else
+        {
+            mesh = new Mesh();
+            GetComponent<MeshFilter>().mesh = mesh;
+        }
     }
 
     public float GetAngleFromVectorFloat(Vector3 dir)
@@ -75,5 +84,10 @@ public class LightOfSight : MonoBehaviour
     public void SetMcDir(Vector3 dir)
     {
         this.mcDir = dir;
+    }
+
+    public void SetIsShow(bool isShow)
+    {
+        this._isShow = isShow;
     }
 }
