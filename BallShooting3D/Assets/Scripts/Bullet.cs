@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
         Vector3 velo = _rb.velocity;
         if (velo.magnitude < 20f)
         {
-            velo = new Vector3(50, 0, 50);
+            velo *= 20f;
         }
     }
 

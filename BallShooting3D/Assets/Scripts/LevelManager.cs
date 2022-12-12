@@ -42,4 +42,9 @@ public class LevelManager : MonoBehaviour
         scene.allowSceneActivation = true;
         _loaderCanvas.SetActive(false);
     }
+
+    public void BackToHome()
+    {
+        LevelManager.Instance.LoadScene("LevelScene");
+    }
 }
