@@ -12,14 +12,15 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics.IgnoreLayerCollision(9, 9, true);
         if (_isBoss == true)
         {
             this.transform.localScale = Vector3.one;
-            this.GetComponent<NavMeshAgent>().speed = 0.75f;
+            this.GetComponent<NavMeshAgent>().speed = 1.5f;
         } else
         {
             this.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-            this.GetComponent<NavMeshAgent>().speed = 0.25f;
+            this.GetComponent<NavMeshAgent>().speed = 0.35f;
         }
     }
 
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.CompareTag("Bullet"))
         {
             if (!_isBoss)
@@ -49,7 +51,7 @@ public class Enemy : MonoBehaviour
         } else if (collision.gameObject.CompareTag("MainCharacter"))
         {
             // TODO: Replace this to "REAL" GAMEOVER state
-            //Debug.Log("GAMEOVER");
+            Debug.Log("GAMEOVER");
         }
     }
 }
