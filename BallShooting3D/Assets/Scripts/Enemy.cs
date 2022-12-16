@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreLayerCollision(9, 9, true);
         if (_isBoss == true)
         {
             this.transform.localScale = Vector3.one;

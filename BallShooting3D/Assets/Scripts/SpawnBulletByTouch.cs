@@ -43,7 +43,7 @@ public class SpawnBulletByTouch : MonoBehaviour
 
             if (Input.GetButton("Fire1"))
             {
-                _lightOfSight.SetMcDir(lookDir);
+                //_lightOfSight.SetMcDir(lookDir);
                 _lightOfSight.SetIsShow(true);
             } else
             {

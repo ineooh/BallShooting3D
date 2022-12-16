@@ -17,7 +17,7 @@ public class LightOfSight : MonoBehaviour
     Vector3[] vertices = new Vector3[4];
     Vector2[] uv = new Vector2[4];
     int[] triangles = new int[6];
-    float lightDistance = 3.5f;
+    float lightDistance = 2.5f;
     void Start()
     {
         mesh = new Mesh();
@@ -33,16 +33,19 @@ public class LightOfSight : MonoBehaviour
 
     void Update()
     {
+        //_isShow = true;
         if (_isShow)
         {
             Vector3 mcPos = _mainCharacter.transform.position;
 
             float angle = GetAngleFromVectorFloat(mcDir);
 
-            vertices[0] = RotatePoint(new Vector3(-0.1f, 0, 0) + mcPos, mcPos, angle);
-            vertices[1] = RotatePoint(new Vector3(-0.05f, 0, lightDistance) + mcPos, mcPos, angle);
-            vertices[2] = RotatePoint(new Vector3(0.1f, 0, 0) + mcPos, mcPos, angle);
-            vertices[3] = RotatePoint(new Vector3(0.05f, 0, lightDistance) + mcPos, mcPos, angle);
+            Debug.Log(angle);
+
+            vertices[0] = RotatePoint(new Vector3(-0.05f, 0, 0), new Vector3(), angle);
+            vertices[1] = RotatePoint(new Vector3(-0.025f, 0, lightDistance), new Vector3(), angle);
+            vertices[2] = RotatePoint(new Vector3(0.05f, 0, 0), new Vector3(), angle);
+            vertices[3] = RotatePoint(new Vector3(0.025f, 0, lightDistance), new Vector3(), angle);
 
             mesh.vertices = vertices;
             mesh.uv = uv;
