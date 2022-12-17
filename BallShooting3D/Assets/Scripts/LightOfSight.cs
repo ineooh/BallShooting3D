@@ -33,14 +33,9 @@ public class LightOfSight : MonoBehaviour
 
     void Update()
     {
-        //_isShow = true;
         if (_isShow)
         {
-            Vector3 mcPos = _mainCharacter.transform.position;
-
             float angle = GetAngleFromVectorFloat(mcDir);
-
-            Debug.Log(angle);
 
             vertices[0] = RotatePoint(new Vector3(-0.05f, 0, 0), new Vector3(), angle);
             vertices[1] = RotatePoint(new Vector3(-0.025f, 0, lightDistance), new Vector3(), angle);
